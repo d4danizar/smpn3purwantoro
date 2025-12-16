@@ -1,26 +1,38 @@
 /* =========================================
-   1. VARIABLES & RESET (DASAR)
+   1. VARIABLES & RESET (FIX BOCOR SAMPING)
    ========================================= */
 :root {
-    --primary-dark: #264653;   /* Charcoal Teal */
-    --primary-light: #2A9D8F;  /* Persian Green */
-    --bg-color: #FFF1E6;       /* Warm Linen */
+    --primary-dark: #264653;
+    --primary-light: #2A9D8F;
+    --bg-color: #FFF1E6;
     --white: #FFFFFF;
-    --accent: #E76F51;         /* Burnt Sienna / Orange */
+    --accent: #E76F51;
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* KUNCI UTAMA: Tambahkan 'html' dan 'overflow-x: hidden' di sini */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Ini yang memotong apapun yang keluar dari layar */
+    position: relative; /* Penting untuk elemen absolute/fixed */
+}
 
 body {
     font-family: var(--font-body);
     background-color: var(--bg-color);
     color: var(--primary-dark);
     line-height: 1.6;
-    overflow-x: hidden; /* Mencegah scroll samping */
-    position: relative;
 }
+
+/* Sisa kode ke bawah (h1, a, ul, dst) biarkan sama... */
 
 h1, h2, h3, h4, h5 {
     font-family: var(--font-heading);
@@ -338,6 +350,32 @@ footer {
    ========================================= */
 
 /* =========================================
+   A. CSS DROPDOWN DESKTOP (Harus di LUAR Media Query)
+   Letakkan ini SEBELUM bagian @media
+   ========================================= */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute; /* KUNCI AGAR MELAYANG */
+    top: 100%;
+    left: 0;
+    /* ... style lainnya ... */
+    display: block; 
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+/* =========================================
    FIX RESPONSIVE: TABLET & LAPTOP KECIL
    (Gunakan kode ini untuk menggantikan blok @media max-width 1200px yang lama)
    ========================================= */
@@ -381,6 +419,10 @@ footer {
         display: none; 
     }
 
+    .dropdown-menu {
+        position: static;
+    }
+    
     /* --- PENYESUAIAN LAYOUT HALAMAN (Agar tidak berantakan) --- */
     .hero { 
         padding-top: 100px; 
