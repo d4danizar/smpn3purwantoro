@@ -135,6 +135,72 @@ ul { list-style: none; }
 .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
 /* =========================================
+   DROPDOWN MENU STYLES
+   ========================================= */
+
+/* 1. Container Dropdown (Menu Induk) */
+.dropdown {
+    position: relative; /* Penting agar menu anak posisinya akurat */
+}
+
+/* Panah kecil di samping teks Profil */
+.dropdown-icon {
+    font-size: 0.7rem;
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+/* Saat hover, panah berputar */
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* 2. Menu Anak (Kotak Dropdown) - Default Sembunyi */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah menu induk */
+    left: 0;
+    background-color: var(--white);
+    min-width: 220px; /* Lebar minimal kotak */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Bayangan halus */
+    border-radius: 10px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Efek geser sedikit */
+    transition: all 0.3s ease;
+    display: block; /* Tetap block tapi hidden via opacity */
+    z-index: 1001;
+}
+
+/* Style link di dalam dropdown */
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+    border-radius: 0;
+    transition: 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(42, 157, 143, 0.1); /* Warna hijau transparan */
+    color: var(--primary-light);
+    transform: translateX(5px); /* Geser kanan dikit saat hover */
+}
+
+/* 3. MEKANISME MUNCUL (HOVER) */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =========================================
    4. HERO SECTION (HALAMAN UTAMA)
    ========================================= */
 .hero {
