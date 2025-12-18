@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIABLES & RESET (FIX BOCOR SAMPING)
+   1. VARIABLES & RESET
    ========================================= */
 :root {
     --primary-dark: #264653;
@@ -11,18 +11,13 @@
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* KUNCI UTAMA: Tambahkan 'html' dan 'overflow-x: hidden' di sini */
 html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; /* Ini yang memotong apapun yang keluar dari layar */
-    position: relative; /* Penting untuk elemen absolute/fixed */
+    overflow-x: hidden; /* Mencegah scroll samping */
+    position: relative;
 }
 
 body {
@@ -32,26 +27,15 @@ body {
     line-height: 1.6;
 }
 
-/* Sisa kode ke bawah (h1, a, ul, dst) biarkan sama... */
-
-h1, h2, h3, h4, h5 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-}
-
+h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .text-center { text-align: center; }
 
 /* =========================================
-   2. COMPONENTS (TOMBOL & BACKGROUND)
+   2. COMPONENTS (BUTTONS & BLOB)
    ========================================= */
 .btn-primary {
     background-color: var(--accent);
@@ -61,13 +45,10 @@ ul { list-style: none; }
     font-weight: 600;
     transition: 0.3s;
     box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
-    display: inline-block; /* Agar padding bekerja dengan baik */
+    display: inline-block;
 }
 
-.btn-primary:hover {
-    background-color: #d65a3b;
-    transform: translateY(-2px);
-}
+.btn-primary:hover { background-color: #d65a3b; transform: translateY(-2px); }
 
 .btn-secondary {
     border: 2px solid var(--primary-dark);
@@ -79,10 +60,7 @@ ul { list-style: none; }
     display: inline-block;
 }
 
-.btn-secondary:hover {
-    background-color: var(--primary-dark);
-    color: var(--white);
-}
+.btn-secondary:hover { background-color: var(--primary-dark); color: var(--white); }
 
 /* Background Blobs */
 .blob {
@@ -94,15 +72,13 @@ ul { list-style: none; }
 }
 
 .blob-1 {
-    width: 400px; height: 400px;
-    background: #a9e0db;
+    width: 400px; height: 400px; background: #a9e0db;
     top: -100px; right: -100px;
     animation: moveBlob 10s infinite alternate;
 }
 
 .blob-2 {
-    width: 300px; height: 300px;
-    background: #fcd5ce;
+    width: 300px; height: 300px; background: #fcd5ce;
     bottom: 10%; left: -50px;
     animation: moveBlob 8s infinite alternate-reverse;
 }
@@ -113,7 +89,7 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   3. NAVBAR (MENU ATAS)
+   3. NAVBAR UTAMA
    ========================================= */
 .navbar {
     position: sticky;
@@ -125,346 +101,162 @@ ul { list-style: none; }
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary-dark);
-}
+.logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); }
 .logo span { color: var(--primary-light); }
 
 .nav-links { display: flex; gap: 30px; }
 .nav-links a { font-weight: 600; transition: 0.3s; }
 .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-/* Tombol Hamburger (Default Sembunyi di Desktop) */
 .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
 /* =========================================
-   DROPDOWN MENU STYLES
+   4. DROPDOWN MENU (LOGIKA GLOBAL & DESKTOP)
    ========================================= */
+.dropdown { position: relative; cursor: pointer; }
 
-/* 1. Container Dropdown (Menu Induk) */
-.dropdown {
-    position: relative; /* Penting agar menu anak posisinya akurat */
-}
-
-/* Panah kecil di samping teks Profil */
-.dropdown-icon {
-    font-size: 0.7rem;
-    margin-left: 5px;
-    transition: transform 0.3s;
-}
-
-/* Saat hover, panah berputar */
-.dropdown:hover .dropdown-icon {
-    transform: rotate(180deg);
-}
-
-/* 2. Menu Anak (Kotak Dropdown) - Default Sembunyi */
-.dropdown-menu {
-    position: absolute;
-    top: 100%; /* Muncul tepat di bawah menu induk */
-    left: 0;
-    background-color: var(--white);
-    min-width: 220px; /* Lebar minimal kotak */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Bayangan halus */
-    border-radius: 10px;
-    padding: 10px 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px); /* Efek geser sedikit */
-    transition: all 0.3s ease;
-    display: block; /* Tetap block tapi hidden via opacity */
-    z-index: 1001;
-}
-
-/* Style link di dalam dropdown */
-.dropdown-menu li {
-    margin: 0;
-}
+.dropdown-icon { font-size: 0.7rem; margin-left: 5px; transition: transform 0.3s; }
+.dropdown:hover .dropdown-icon { transform: rotate(180deg); }
 
 .dropdown-menu li a {
-    display: block;
-    padding: 10px 20px;
-    color: var(--primary-dark);
-    font-size: 0.95rem;
-    border-radius: 0;
-    transition: 0.2s;
+    display: block; padding: 10px 20px; color: var(--primary-dark);
+    font-size: 0.95rem; transition: 0.2s;
 }
+.dropdown-menu li a:hover { background-color: rgba(42, 157, 143, 0.1); color: var(--primary-light); }
 
-.dropdown-menu li a:hover {
-    background-color: rgba(42, 157, 143, 0.1); /* Warna hijau transparan */
-    color: var(--primary-light);
-    transform: translateX(5px); /* Geser kanan dikit saat hover */
-}
+/* --- KHUSUS DESKTOP (Layar > 1200px) --- */
+/* Kita kunci style melayang HANYA di layar besar */
+@media (min-width: 1201px) {
+    .dropdown-menu {
+        position: absolute; /* Melayang */
+        top: 100%; left: 0;
+        background-color: var(--white);
+        min-width: 220px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 10px; padding: 10px 0;
+        z-index: 1001;
+        
+        /* Animasi Muncul */
+        opacity: 0; visibility: hidden; transform: translateY(10px);
+        transition: all 0.3s ease;
+        display: block; /* Selalu dirender di desktop, cuma hidden pake opacity */
+    }
 
-/* 3. MEKANISME MUNCUL (HOVER) */
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    .dropdown:hover .dropdown-menu {
+        opacity: 1; visibility: visible; transform: translateY(0);
+    }
 }
 
 /* =========================================
-   4. HERO SECTION (HALAMAN UTAMA)
+   5. HALAMAN LAIN (HERO, FEATURE, FOOTER)
    ========================================= */
-.hero {
-    padding: 80px 0;
-    display: flex;
-    align-items: center;
-    min-height: 90vh;
-}
-
-.hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
+.hero { padding: 80px 0; display: flex; align-items: center; min-height: 90vh; }
+.hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 
 .badge {
-    background-color: rgba(42, 157, 143, 0.1);
-    color: var(--primary-light);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 15px;
+    background-color: rgba(42, 157, 143, 0.1); color: var(--primary-light);
+    padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
+    display: inline-block; margin-bottom: 15px;
 }
 
-.hero-text h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: var(--primary-dark);
-}
+.hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: var(--primary-dark); }
 .hero-text .highlight { color: var(--primary-light); }
-
-.hero-text p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 30px;
-    max-width: 90%;
-}
-
+.hero-text p { font-size: 1.1rem; color: #555; margin-bottom: 30px; max-width: 90%; }
 .hero-buttons { display: flex; gap: 15px; }
 
 .hero-image { position: relative; }
-.hero-image img {
-    width: 100%;
-    border-radius: 20px 0 20px 0;
-    box-shadow: 20px 20px 0px rgba(42, 157, 143, 0.2);
-}
+.hero-image img { width: 100%; border-radius: 20px 0 20px 0; box-shadow: 20px 20px 0px rgba(42, 157, 143, 0.2); }
 
 .floating-card {
-    position: absolute;
-    bottom: -20px; left: -20px;
-    background: var(--white);
-    padding: 15px 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: flex; align-items: center; gap: 15px;
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--white); padding: 15px 20px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 15px;
     animation: float 3s ease-in-out infinite;
 }
 .floating-card i { font-size: 2rem; color: #FFD700; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* =========================================
-   5. FEATURES SECTION
-   ========================================= */
 .features { padding: 80px 0; background-color: var(--white); }
 .section-header { margin-bottom: 50px; }
 .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.feature-card { background: var(--bg-color); padding: 30px; border-radius: 20px; transition: 0.3s; border: 1px solid transparent; }
+.feature-card:hover { transform: translateY(-10px); border-color: var(--primary-light); background: var(--white); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+.icon-box { width: 60px; height: 60px; background: rgba(42, 157, 143, 0.15); color: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.feature-card {
-    background: var(--bg-color);
-    padding: 30px;
-    border-radius: 20px;
-    transition: 0.3s;
-    border: 1px solid transparent;
-}
-.feature-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-light);
-    background: var(--white);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-}
-
-.icon-box {
-    width: 60px; height: 60px;
-    background: rgba(42, 157, 143, 0.15);
-    color: var(--primary-light);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin-bottom: 20px;
-}
-
-/* =========================================
-   6. FOOTER
-   ========================================= */
-footer {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding: 60px 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-}
+footer { background-color: var(--primary-dark); color: var(--white); padding: 60px 0 20px; }
+.footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
 .footer-col h3 { margin-bottom: 15px; color: var(--primary-light); }
 .footer-col h4 { margin-bottom: 15px; font-size: 1.2rem; }
 .footer-col ul li { margin-bottom: 10px; }
 .footer-col ul li a:hover { color: var(--accent); }
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
+.footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; opacity: 0.7; }
 
 /* =========================================
-   7. RESPONSIVE DESIGN (FIX UTAMA DI SINI)
+   6. RESPONSIVE DESIGN (MOBILE & TABLET)
    ========================================= */
-
-/* =========================================
-   A. CSS DROPDOWN DESKTOP (Harus di LUAR Media Query)
-   Letakkan ini SEBELUM bagian @media
-   ========================================= */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    position: absolute; /* KUNCI AGAR MELAYANG */
-    top: 100%;
-    left: 0;
-    /* ... style lainnya ... */
-    display: block; 
-    opacity: 0;
-    visibility: hidden;
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-
-
-/* =========================================
-   FIX RESPONSIVE: TABLET & LAPTOP KECIL
-   (Gunakan kode ini untuk menggantikan blok @media max-width 1200px yang lama)
-   ========================================= */
-
 @media (max-width: 1200px) {
 
-    /* --- LOGIKA MENU HAMBURGER (PERBAIKAN) --- */
+    /* --- LOGIKA NAVBAR MOBILE (HAMBURGER) --- */
     .nav-links {
-        position: fixed;      /* Kunci posisi agar melayang di atas konten */
-        top: 0;
-        right: -100%;         /* PENTING: Paksa menu keluar layar 100% ke kanan */
-        width: 70%;           /* Lebar menu 70% dari layar */
-        height: 100vh;        /* Tinggi full satu layar */
-        background-color: rgba(255, 255, 255, 0.98); /* Background putih transparan */
-        
-        display: flex;        /* Pastikan Flexbox aktif */
-        flex-direction: column; /* Susun menu ke bawah (Vertikal) */
-        align-items: center;  /* Rata tengah */
-        justify-content: center;
-        gap: 30px;            /* Jarak antar teks menu */
-        
-        transition: right 0.4s ease-in-out; /* Animasi geser yang halus */
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* Bayangan di kiri menu */
-        z-index: 999;         /* Pastikan di atas elemen lain */
+        position: fixed;
+        top: 0; right: -100%; /* Sembunyi total di kanan */
+        width: 70%; height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 25px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 999;
     }
 
-    /* KELAS ACTIVE: Ini yang dipanggil Javascript saat tombol diklik */
-    .nav-links.active {
-        right: 0;             /* GESER MASUK: Kembalikan posisi ke 0 (Tampil) */
-    }
+    .nav-links.active { right: 0; /* Muncul */ }
+    
+    .hamburger { display: block; z-index: 1000; position: relative; }
+    .nav-container .btn-primary { display: none; /* Sembunyikan tombol header */ }
 
-    /* Munculkan Tombol Garis Tiga */
-    .hamburger { 
-        display: block; 
-        z-index: 1000; 
-        position: relative; /* Agar icon tetap bisa diklik */
-    }
-
-    /* Sembunyikan Tombol PPDB Oranye di Navbar (Bikin sempit) */
-    .nav-container .btn-primary { 
-        display: none; 
-    }
-
+    /* --- LOGIKA DROPDOWN MOBILE (FIX GHOST SPACE) --- */
+    .dropdown { width: 100%; text-align: center; }
+    
     .dropdown-menu {
-        position: static;
+        position: static; /* Tidak melayang */
+        background-color: transparent;
+        box-shadow: none;
+        width: 100%; padding: 0; margin-top: 10px;
+        
+        /* KUNCI: Display NONE agar tidak makan tempat saat sembunyi */
+        display: none; 
+        opacity: 1; visibility: visible; transform: none;
     }
     
-    /* --- PENYESUAIAN LAYOUT HALAMAN (Agar tidak berantakan) --- */
-    .hero { 
-        padding-top: 100px; 
-        text-align: center; 
-    }
+    /* Saat di-hover/tap di HP, baru muncul */
+    .dropdown:hover .dropdown-menu { display: block; animation: slideDown 0.3s ease; }
+    
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .hero-container {
-        grid-template-columns: 1fr; /* Hero Section jadi 1 kolom (Atas-Bawah) */
-        gap: 40px;
-    }
-
+    /* --- LAYOUT HALAMAN --- */
+    .hero { padding-top: 100px; text-align: center; }
+    .hero-container { grid-template-columns: 1fr; gap: 40px; }
     .hero-text h1 { font-size: 2.8rem; }
     .hero-buttons { justify-content: center; }
-
-    .hero-image {
-        margin: 0 auto;
-        max-width: 80%;
-    }
-
-    /* Reset posisi kartu melayang */
+    .hero-image { margin: 0 auto; max-width: 80%; }
+    
     .floating-card {
-        padding: 10px 15px;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: auto;
-        min-width: 200px;
-        animation: none; 
+        padding: 10px 15px; bottom: -15px; left: 50%; transform: translateX(-50%);
+        width: auto; min-width: 200px; animation: none;
     }
 
-    /* Footer & Features jadi 1 kolom */
     .features-grid, .footer-content { grid-template-columns: 1fr; }
     .footer-content { text-align: center; }
-    
-    .blob { opacity: 0.3; } 
+    .blob { opacity: 0.3; }
 }
 
-/* B. MOBILE KECIL (Max-Width 480px) */
 @media (max-width: 480px) {
     .hero-text h1 { font-size: 2.2rem; }
-    .nav-links { width: 80%; } /* Menu lebih lebar di HP */
-    
+    .nav-links { width: 85%; }
     .hero-buttons { flex-direction: column; }
     .btn-primary, .btn-secondary { width: 100%; text-align: center; }
 }
