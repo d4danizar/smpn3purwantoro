@@ -18,6 +18,7 @@ html, body {
     max-width: 100%;
     overflow-x: hidden; /* Mencegah scroll samping */
     position: relative;
+    scroll-behavior: smooth; /* <--- INI KUNCI SMOOTH SCROLLING */
 }
 
 body {
@@ -259,4 +260,230 @@ footer { background-color: var(--primary-dark); color: var(--white); padding: 60
     .nav-links { width: 85%; }
     .hero-buttons { flex-direction: column; }
     .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}
+
+/* =========================================
+   7. GALERI SEKOLAH (BENTO GRID)
+   ========================================= */
+.gallery-section {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Kolom 1 lebar (2x lipat) */
+    grid-template-rows: 250px 250px;    /* Tinggi baris */
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.bento-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Item Utama (Besar di Kiri) */
+.main-item {
+    grid-column: 1 / 2; /* Kolom 1 */
+    grid-row: 1 / 3;    /* Memanjang dari baris 1 sampai 3 */
+}
+
+/* Overlay Efek (Muncul saat Hover) */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(38, 70, 83, 0.7); /* Warna Primary Dark transparan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0; /* Sembunyi */
+    transition: 0.3s ease;
+}
+
+.overlay i { font-size: 2rem; margin-bottom: 10px; }
+.overlay span { font-weight: 600; font-family: var(--font-heading); }
+
+.bento-item:hover .overlay { opacity: 1; }
+.bento-item:hover img { transform: scale(1.1); /* Zoom effect */ }
+
+/* =========================================
+   8. LIGHTBOX (MODAL GAMBAR)
+   ========================================= */
+.lightbox {
+    display: none; /* Sembunyi default */
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    animation: zoomIn 0.3s;
+}
+
+#caption {
+    margin-top: 15px;
+    color: white;
+    font-size: 1.2rem;
+    font-family: var(--font-heading);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px; right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes zoomIn {
+    from {transform:scale(0)} to {transform:scale(1)}
+}
+
+/* =========================================
+   9. BERITA TERBARU (SLIDER)
+   ========================================= */
+.news-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden; /* Sembunyikan yang keluar jalur */
+    padding: 20px 0;
+}
+
+.slider-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out; /* Animasi geser halus */
+}
+
+.news-card {
+    min-width: calc(33.333% - 20px); /* Tampil 3 di Desktop */
+    background: var(--bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.news-card:hover { transform: translateY(-5px); }
+
+.news-img {
+    height: 200px;
+    width: 100%;
+    position: relative;
+}
+
+.news-img img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.news-date {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: var(--accent);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.news-content { padding: 25px; }
+.news-content h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-dark); }
+.news-content p { font-size: 0.95rem; color: #666; margin-bottom: 20px; line-height: 1.5; }
+
+.read-more {
+    color: var(--primary-light);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Dots Indikator */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px; height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.dot.active { background-color: var(--primary-light); transform: scale(1.2); }
+
+/* =========================================
+   10. RESPONSIVE TAMBAHAN
+   ========================================= */
+@media (max-width: 1024px) {
+    /* Tablet: Berita jadi 2 kolom */
+    .news-card { min-width: calc(50% - 15px); }
+    
+    /* Bento Grid jadi 2 kolom */
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 250px;
+    }
+    .main-item { grid-column: 1 / 3; grid-row: 1 / 2; } /* Gambar besar lebar penuh */
+}
+
+@media (max-width: 768px) {
+    /* HP: Berita jadi 1 kolom full */
+    .news-card { min-width: 100%; }
+    
+    /* Bento Grid jadi tumpuk ke bawah */
+    .bento-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .bento-item { height: 200px; width: 100%; }
+}
+
+/* Update agar Parallax Gambar Hero mulus & tidak menutupi konten lain */
+.hero-image img {
+    will-change: transform; /* Optimasi performa browser */
+    transition: transform 0.1s linear; /* Agar pergerakan smooth, tidak patah-patah */
+    z-index: 1;
+}
+
+.hero-text {
+    z-index: 2; /* Pastikan teks selalu di atas gambar */
+    position: relative;
+}
+
+/* Pastikan Blob tetap di belakang */
+.blob {
+    will-change: transform;
+    transition: transform 0.1s linear;
 }
