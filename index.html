@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMP Negeri 3 Purwantoro</title>
+    <title>SMP Negeri 3 Purwantoro - Cerdas & Berkarakter</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,11 +25,10 @@
                 <li class="dropdown">
                     <a href="#profil">Profil <i class="fas fa-chevron-down dropdown-icon"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#sejarahsingkat">Sejarah Singkat</a></li>
+                        <li><a href="#sejarah">Sejarah Singkat</a></li>
                         <li><a href="#visimisi">Visi & Misi</a></li>
                         <li><a href="#struktur">Struktur Organisasi</a></li>
                         <li><a href="#guru">Tenaga Pendidik</a></li>
-                        <li><a href="#fasilitas">Fasilitas Sekolah</a></li>
                     </ul>
                 </li>                
                 <li><a href="#akademik">Akademik</a></li>
@@ -48,10 +47,10 @@
             <div class="hero-text">
                 <span class="badge">🎓 Penerimaan Siswa Baru Telah Dibuka</span>
                 <h1>Mewujudkan Generasi <span class="highlight">Cerdas</span> & <span class="highlight">Berkarakter</span>.</h1>
-                <p>SMP Negeri 3 Purwantoro berkomitmen mencetak pemimpin masa depan melalui pendidikan berbasis teknologi dan akhlak mulia. Bergabunglah bersama kami.</p>
+                <p>SMP Negeri 3 Purwantoro berkomitmen mencetak pemimpin masa depan melalui pendidikan berbasis teknologi dan akhlak mulia.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Info PPDB 2025</a>
-                    <a href="#" class="btn-secondary"><i class="fas fa-play-circle"></i> Tur Sekolah</a>
+                    <a href="#ppdb" class="btn-primary">Info PPDB 2025</a>
+                    <a href="#galeri" class="btn-secondary"><i class="fas fa-camera"></i> Lihat Galeri</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -69,32 +68,132 @@
 
     <section class="features">
         <div class="container">
-            <div class="section-header text-center">
-                <h2>Kenapa Memilih Kami?</h2>
-                <p>Fasilitas dan metode pembelajaran terbaik untuk siswa.</p>
-            </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Digital Classroom</h3>
-                    <p>Setiap kelas dilengkapi smartboard dan akses internet berkecepatan tinggi.</p>
+                    <h3>Digital Class</h3>
+                    <p>Kelas modern dengan Smartboard.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box"><i class="fas fa-leaf"></i></div>
                     <h3>Green School</h3>
-                    <p>Lingkungan belajar yang asri, sejuk, dan mendukung kesehatan mental.</p>
+                    <p>Lingkungan asri dan hijau.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box"><i class="fas fa-medal"></i></div>
                     <h3>Ekskul Juara</h3>
-                    <p>Lebih dari 20 ekstrakurikuler aktif berprestasi di tingkat nasional.</p>
+                    <p>Pengembangan bakat siswa.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h3>Guru Kompeten</h3>
-                    <p>Dididik oleh tenaga pengajar tersertifikasi dan berpengalaman.</p>
+                    <h3>Guru Ahli</h3>
+                    <p>Pengajar tersertifikasi.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="galeri" class="gallery-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Galeri & Fasilitas</h2>
+                <p>Intip suasana belajar dan prestasi di sekolah kami.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-item main-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1000" alt="Gedung Sekolah Utama">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Gedung Utama</span>
+                    </div>
+                </div>
+                <div class="bento-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000" alt="Siswa Belajar">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Kegiatan Belajar</span>
+                    </div>
+                </div>
+                <div class="bento-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=1000" alt="Perpustakaan">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Perpustakaan</span>
+                    </div>
+                </div>
+                <div class="bento-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1000" alt="Prestasi Olahraga">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Tim Basket Juara</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="berita" class="news-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Kabar Sekolah</h2>
+                <p>Informasi terbaru seputar kegiatan dan prestasi.</p>
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600" alt="Berita 1">
+                            <span class="news-date">18 Des 2024</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>Penerimaan Peserta Didik Baru (PPDB) 2025</h4>
+                            <p>Simak syarat dan ketentuan pendaftaran siswa baru tahun ajaran 2025/2026.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=600" alt="Berita 2">
+                            <span class="news-date">10 Nov 2024</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>Juara 1 Lomba Robotik Nasional</h4>
+                            <p>Tim Robotik SMPN 3 Purwantoro kembali mengharumkan nama sekolah di kancah nasional.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1511632765486-a01980968a0c?q=80&w=600" alt="Berita 3">
+                            <span class="news-date">28 Okt 2024</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>Peringatan Hari Sumpah Pemuda</h4>
+                            <p>Upacara bendera dan pentas seni memeriahkan peringatan Sumpah Pemuda.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600" alt="Berita 4">
+                            <span class="news-date">15 Okt 2024</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>Workshop Digital Marketing untuk Siswa</h4>
+                            <p>Mempersiapkan siswa menghadapi era digital dengan keterampilan praktis.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
         </div>
     </section>
 
@@ -107,52 +206,174 @@
             <div class="footer-col">
                 <h4>Navigasi</h4>
                 <ul>
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">Akademik</a></li>
-                    <li><a href="#">PPDB</a></li>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#akademik">Akademik</a></li>
+                    <li><a href="#ppdb">PPDB</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Hubungi Kami</h4>
-                <p>Jl. Pendidikan No. 1, Kota Impian</p>
+                <p>Jl. Pendidikan No. 1, Purwantoro</p>
                 <p>(021) 1234-5678</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 D4danizar Corp. All rights reserved.</p>
+            <p>&copy; 2025 SMPN 3 Purwantoro. All rights reserved.</p>
         </div>
     </footer>
-<script>
-    // Toggle Menu Mobile
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // 1. Mobile Menu Logic
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 2. Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 3. Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const captionText = document.getElementById('caption');
+
+        function openLightbox(element) {
+            lightbox.style.display = "flex"; // Munculkan
+            // Ambil src gambar dari elemen yang diklik
+            const img = element.querySelector('img');
+            lightboxImg.src = img.src;
+            // Ambil teks caption
+            const text = element.querySelector('span').innerText;
+            captionText.innerHTML = text;
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+
+        // 4. Auto Slider Berita Logic
+        const track = document.getElementById('sliderTrack');
+        const dotsContainer = document.getElementById('sliderDots');
+        let slides = document.querySelectorAll('.news-card');
+        let index = 0;
+        let slideInterval;
+
+        // Buat Dots sesuai jumlah slide
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            // Geser track ke kiri
+            // Di HP: geser 100% per item, Di Desktop: geser 33.33% (tapi kita pakai hitungan px biar akurat)
+            const cardWidth = slides[0].offsetWidth + 30; // Lebar kartu + gap
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+            // Update dots
+            dots.forEach(d => d.classList.remove('active'));
+            if(dots[index]) dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            index++;
+            // Jika sampai akhir, balik ke awal
+            // Logika responsive: Desktop tampil 3, jadi batas indexnya beda
+            const totalSlides = slides.length;
+            const cardsToShow = window.innerWidth > 768 ? 3 : 1; 
+            
+            if (index > totalSlides - cardsToShow) {
+                index = 0;
+            }
+            updateSlider();
+        }
+
+        function goToSlide(i) {
+            index = i;
+            updateSlider();
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 3000); // 3 Detik ganti
+        }
+
+        // Jalankan Auto Slide
+        slideInterval = setInterval(nextSlide, 3000);
+
+        // Stop saat hover mouse
+        track.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        track.addEventListener('mouseleave', () => resetTimer());
+
+        // Update saat resize layar
+        window.addEventListener('resize', updateSlider);
+
+        /* =========================================
+       PARALLAX EFFECT (Logic Baru)
+       ========================================= */
     
-    // Ubah icon hamburger jadi 'X'
-    const icon = hamburger.querySelector('i');
-    if(navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
+    window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
 
-// Efek Navbar Transparan ke Solid saat Scroll
-const navbar = document.querySelector('.navbar');
+        // 1. Parallax untuk Hero Image (Gambar Utama)
+        // Gambar akan turun pelan-pelan (speed 0.4) saat discroll
+        const heroImg = document.querySelector('.hero-image img');
+        if(heroImg) {
+            heroImg.style.transform = `translateY(${scrolled * 0.4}px)`;
+        }
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-</script>
+        // 2. Parallax untuk Blobs (Background)
+        // Blob 1 bergerak agak cepat
+        const blob1 = document.querySelector('.blob-1');
+        if(blob1) {
+            blob1.style.transform = `translate(0px, ${scrolled * 0.2}px)`;
+        }
+
+        // Blob 2 bergerak lebih lambat (efek kedalaman)
+        const blob2 = document.querySelector('.blob-2');
+        if(blob2) {
+            blob2.style.transform = `translate(0px, ${scrolled * 0.1}px)`;
+        }
+
+        // 3. Parallax untuk Floating Card (Juara 1)
+        // Kartu bergerak berlawanan arah sedikit biar dinamis
+        const floatCard = document.querySelector('.floating-card');
+        if(floatCard) {
+            floatCard.style.transform = `translateY(-${scrolled * 0.1}px) translateX(-50%)`; 
+            // Note: translateX(-50%) dijaga agar posisi horizontal tetap di tengah (sesuai CSS mobile)
+            // Jika di desktop dia di kiri, logika CSS media query akan menimpanya, jadi aman.
+        }
+    });
+
+    </script>
 </body>
-
 </html>
-
